@@ -1,0 +1,1148 @@
+@article{Lu2020,
+abstract = {App-in-app is a new and trending mobile computing paradigm in which native app-like software modules, called sub-apps, are hosted by popular mobile apps such as Wechat, Baidu, TikTok and Chrome, to enrich the host app's functionalities and to form an "all-in-one app"ecosystem. Sub-apps access system resources through the host, and their functionalities come close to regular mobile apps (taking photos, recording voices, banking, shopping, etc.). Less clear, however, is whether the host app, typically a third-party app, is capable of securely managing sub-apps and their access to system resources. In this paper, we report the first systematic study on the resource management in app-in-app systems. Our study reveals high-impact security flaws, which allow the adversary to stealthily escalate privilege (e.g., accessing the camera, photo gallery, microphone, etc.) or acquire sensitive data (e.g., location, passwords of Amazon, Google, etc.). To understand the impacts of those flaws, we developed an analysis tool that automatically assesses 11 popular app-in-app platforms on both Android and iOS. Our results brought to light the prevalence of the security flaws. We further discuss the lessons learned and propose mitigation strategies.},
+annote = {Problem
+Sub-apps may perform permission escalation attack over the hosts. It is seen that most APIs are not checked within code to have enough permissions and then used! This is in fact due to improper checking within web API and react native codes. 
+
+Insight
+Sub-app may do malicious activities: phishing attack or misuse permissions within the host app. 
+
+Methodology
+Dynamic analysis is used to monitor the behvaior of the app:
+1) if the sub-app is using the permission granted within the host-app
+2) if the UI of the sub-app resembels the UI of other real apps by taking screenshot and comparing them pixel by pixel.
+
+Conclusion
+
+Questions:
+1) For resource exposing flaw, it only checks the possibility or existence of acess to API without checking the permission context? Is it possible to use the API in that case? Is it Java code or native code or js?
+2) UI phishing is done by checking the the UI content pixel by pixel. What are the sensitive data? How accurate is it? What the page is exactly copied ?},
+author = {Lu, Haoran and Xing, Luyi and Xiao, Yue and Zhang, Yifan and Liao, Xiaojing and Wang, Xiao Feng and Wang, Xueqiang},
+doi = {10.1145/3372297.3417255},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/CCS20 - Demystifying Resource Management Risks in Emerging Mobile
+App-in-App Ecosystems.pdf:pdf},
+isbn = {9781450370899},
+issn = {15437221},
+journal = {Proceedings of the ACM Conference on Computer and Communications Security},
+keywords = {access control,app-in-app,permission model,resource management,security analysis},
+pages = {569--585},
+title = {{Demystifying Resource Management Risks in Emerging Mobile App-in-App Ecosystems}},
+year = {2020}
+}
+@article{Spreitzer2018,
+abstract = {Side-channel attacks on mobile devices have gained increasing attention since their introduction in 2007. While traditional side-channel attacks, such as power analysis attacks and electromagnetic analysis attacks, required physical presence of the attacker as well as expensive equipment, an (unprivileged) application is all it takes to exploit the leaking information on modern mobile devices. Given the vast amount of sensitive information that are stored on smartphones, the ramifications of side-channel attacks affect both the security and privacy of users and their devices. In this paper, we propose a new categorization system for side-channel attacks, which is necessary as side-channel attacks have evolved significantly since their scientific investigations during the smart card era in the 1990s. Our proposed classification system allows to analyze side-channel attacks systematically, and facilitates the development of novel countermeasures. Besides this new categorization system, the extensive survey of existing attacks and attack strategies provides valuable insights into the evolving field of side-channel attacks, especially when focusing on mobile devices. We conclude by discussing open issues and challenges in this context and outline possible future research directions.},
+annote = {Problem
+Modern side-chanel attacks differe from the converntional ones in many aspects. Mobile platforms are a vulnerable one to these attacks.
+
+Insight
+
+
+
+Methodology
+
+
+
+
+Future Work},
+archivePrefix = {arXiv},
+arxivId = {1611.03748},
+author = {Spreitzer, Raphael and Moonsamy, Veelasha and Korak, Thomas and Mangard, Stefan},
+doi = {10.1109/COMST.2017.2779824},
+eprint = {1611.03748},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Side-Channel Classification.pdf:pdf},
+issn = {1553877X},
+journal = {IEEE Communications Surveys and Tutorials},
+keywords = {Android,Side-channel attacks,classification,information leakage,mobile devices,smartphones,survey},
+number = {1},
+pages = {465--488},
+publisher = {IEEE},
+title = {{Systematic Classification of Side-Channel Attacks: A Case Study for Mobile Devices}},
+volume = {20},
+year = {2018}
+}
+@article{Caviglione2016,
+author = {Caviglione, Luca and Gaggero, Mauro and Lalande, Jean-fran{\c{c}}ois and Caviglione, Luca and Gaggero, Mauro and Lalande, Jean-fran{\c{c}}ois and Mazurczyk, Wojciech and Urbanski, Marcin and Caviglione, Luca and Gaggero, Mauro},
+doi = {10.1109/TIFS.2015.2510825.to},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Caviglione et al. - 2016 - Seeing the Unseen Revealing Mobile Malware Hidden Communications via Energy Consumption and Artificial Intel.pdf:pdf},
+title = {{Seeing the Unseen : Revealing Mobile Malware Hidden Communications via Energy Consumption and Artificial Intelligence To cite this version : HAL Id : hal-01247495 Seeing the Unseen : Revealing Mobile Malware Hidden Communications via Energy Consumption an}},
+year = {2016}
+}
+@article{Xu2019,
+abstract = {Bluetooth is a widely used communication technology , especially under the scenarios of mobile computing and Internet of Things. Once paired with a host device, a Bluetooth device then can exchange commands and data, such as voice, keyboard/mouse inputs, network, blood pressure data, and so on, with the host. Due to the sensitivity of such data and commands, some security measures have already been built into the Bluetooth protocol, like authentication, encryption, authorization, etc. However, according to our studies on the Bluetooth protocol as well as its implementation on Android system, we find that there are still some design flaws which could lead to serious security consequences. For example, it is found that the authentication process on Bluetooth profiles is quite inconsistent and coarse-grained: if a paired device changes its profile, it automatically gets trust and users would not be notified. Also, there is no strict verification on the information provided by the Bluetooth device itself, so that a malicious device can deceive a user by changing its name, profile information, and icon to be displayed on the screen. To better understand the problem, we performed a systematic study over the Bluetooth profiles and presented three attacks to demonstrate the feasibility and potential damages of such Bluetooth design flaws. The attacks were implemented on a Raspberry Pi 2 device and evaluated with different Android OS versions ranging from 5.1 to the latest 8.1. The results showed adversaries could bypass existing protections of Android (e.g., permissions, isolations, etc.), launch Man-in-the-Middle attack, control the victim apps and system, steal sensitive information, etc. To mitigate such threats, a new Bluetooth validation mechanism was proposed. We implemented the prototype system based on the AOSP project and deployed it on a Google Pixel 2 phone for evaluation. The experiment showed our solution could effectively prevent the attacks.},
+author = {Xu, Fenghao and Diao, Wenrui and Li, Zhou and Chen, Jiongyi and Zhang, Kehuan},
+doi = {10.14722/ndss.2019.23482},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/BadBluetooh.pdf:pdf},
+isbn = {189156255X},
+number = {February},
+title = {{BadBluetooth: Breaking Android Security Mechanisms via Malicious Bluetooth Peripherals}},
+year = {2019}
+}
+@article{Bugiel2011,
+abstract = {Google Android has become a popular mobile operating system which is increasingly deployed by mobile device manufactures for various platforms. Recent attacks show that Android's permission framework is vulnerable to application-level privilege escalation attacks, i.e., an application may indirectly gain privileges to perform unauthorized actions. The existing proposals for security extensions to Android's middleware (e.g., Kirin, Saint or TaintDroid) cannot fully and adequately mitigate these attacks or detect Trojans such as Soundminer that exploit covert channels in the Android system. In this paper we present the design and implementation of XManDroid (eXtended Monitoring on Android), a security framework that extends the monitoring mechanism of Android to detect and prevent application-level privilege escalation attacks at runtime based on a system-centric system policy. Our implementation dynamically analyzes applications' transitive permission usage while inducing a minimal performance overhead unnoticeable for the user. Depending on system policy our system representation allows for an effective detection of (covert) channels established through the Android system services and content providers while simultaneously optimizing the rate of false positives. We evaluate the effectiveness of XManDroid on our test suite that simulates known application-level privilege escalation attacks (including Soundminer), and demonstrate successful detection of attacks that use Android's inter-component communication (ICC) framework (standard for most attacks). We also preformed a usability test to evaluate the impact of XManDroid on the user-experience with third party applications. Moreover, we analyze sources of false positives and discuss how this rate can be further significantly reduced.},
+annote = {Problem
+Escalation attack is possible to happen as of shared resources in Android environment between apps. How can we detect them?
+
+
+Insight
+We have access to the manifest file and can retrieve the list of permissions. With a monitoring tool at middleware, we can listen for when any ICC or shared preference is being occured between apps. If there is any ICC occuring, the 
+
+
+Methodology
+UID is attached to each data written to a shared preference, storage or ICC. Then, if data is retrieved or read by other app, the permission checking is done to see if the app has this permission or not. 
+
+
+Limitation and Future work
+
+1) I wonder in this work, we only check some shared resources between apps. 2) It is not clear if the data is finally being shared or not and so, the work requires a complete testing. 3) What if the user gives the permission to perform dangerous operation on the storage? What if there is also an Internet permission in both apps but definitely we need the permission to access IMEI which is not granted. 4) The rules are not complete.},
+author = {Bugiel, Sven and Davi, Lucas and Dmitrienko, Alexandra and Fischer, Thomas and Sadeghi, Ahmad-reza},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/xmandroid.pdf:pdf},
+journal = {Technische Universit{\"{a}}t Darmstadt, Technical Report},
+pages = {1 -- 18},
+title = {{XManDroid: A New Android Evolution to Mitigate Privilege Escalation Attacks}},
+url = {http://www.informatik.tu-darmstadt.de/fileadmin/user_upload/Group_TRUST/PubsPDF/xmandroid.pdf},
+year = {2011}
+}
+@article{Schlegel,
+author = {Schlegel, Roman and Zhang, Kehuan and Zhou, Xiaoyong and Intwala, Mehool and Kapadia, Apu and Wang, Xiaofeng},
+title = {{Soundcomber : A Stealthy and Context-Aware Sound Trojan for Smartphones}}
+}
+@article{Reardon2019,
+abstract = {Modern smartphone platforms implement permission-based models to protect access to sensitive data and system resources. However, apps can circumvent the permission model and gain access to protected data without user consent by using both covert and side channels. Side channels present in the implementation of the permission system allow apps to access protected data and system resources without permission; whereas covert channels enable communication between two colluding apps so that one app can share its permission-protected data with another app lacking those permissions. Both pose threats to user privacy. In this work, we make use of our infrastructure that runs hundreds of thousands of apps in an instrumented environment. This testing environment includes mechanisms to monitor apps' runtime behaviour and network traffic. We look for evidence of side and covert channels being used in practice by searching for sensitive data being sent over the network for which the sending app did not have permissions to access it. We then reverse engineer the apps and third-party libraries responsible for this behaviour to determine how the unauthorized access occurred. We also use software fingerprinting methods to measure the static prevalence of the technique that we discover among other apps in our corpus. Using this testing environment and method, we uncovered a number of side and covert channels in active use by hundreds of popular apps and third-party SDKs to obtain unauthorized access to both unique identifiers as well as geolocation data. We have responsibly disclosed our findings to Google and have received a bug bounty for our work.},
+annote = {Problem
+Several third party APIs are used within an app and they can leak data and do operation that violates the privacy of uesrs. 
+
+Insight
+It is possible to detect covert and side channels that third party APIs uses by doing some static analysis and dynamic ones on checking what is being sent through network
+
+
+Methodology
+Application were being executed with the tool named Monkey. The permission sets were retrieved and the network was collected. If any suspicious or sensitive information were in the code, the app was put to be reserver engineered to see what was being sent out. Possibly it was a covert or side channel. 
+
+
+Limitation and Future work:
+
+1) Consider only user identification and geolocation based information and related dangerous permissions in android env. 
+
+2) Considering network transmissions as only the possible way to leak data rather than others.
+
+3) instrumentation and manual analysis rather than static and automatic analysis since they think overcoming obfuscation is hard. Possible to be evaded if an app uses certificate pinning!
+
+4) May be inaccurate due to using Monkey tool
+
+5) Just detection and possible to be false positive. Who can find exloitation?
+
+
+
+4)},
+author = {Reardon, Joel and On, Amit Elazari Bar and Feal, {\'{A}}lvaro and Vallina-Rodriguez, Narseo and Wijesekera, Primal and Egelman, Serge},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/sec19-50 ways to leak data.pdf:pdf},
+isbn = {9781939133069},
+journal = {Proceedings of the 28th USENIX Security Symposium},
+pages = {603--620},
+title = {{50 ways to leak your data: An exploration of apps' circumvention of the android permissions system}},
+year = {2019}
+}
+@article{Chandra2015,
+abstract = {Recently, there is a great attention on the smartphones security and privacy due to their increasing number of users and wide range of apps. Mobile operating systems such as Android, provide mechanisms for data protection by restricting the communication between apps within the device. However, malicious apps can still overcome such restrictions via various means such as exploiting the software vulnerability in systems or using covert channels for data transferring. In this paper, we aim to systematically analyze various resources available on Android for the possible use of covert channels between two malicious apps. From our systematized analysis, we identify two new hardware resources, namely battery and phone call, that can also be used as covert channels. We also find new features to enrich the existing approaches for better covert channel such as using the audio volume and screen brightness. Our experimental results show that high throughput data transmission can be achieved using these resources for the covert channel attacks.},
+author = {Chandra, Swarup and Lin, Zhiqiang and Kundu, Ashish and Khan, Latifur},
+doi = {10.1007/978-3-319-23829-6_29},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Chandra et al. - 2015 - Towards a systematic study of the covert channel attacks in smartphones.pdf:pdf},
+issn = {18678211},
+journal = {Lecture Notes of the Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering, LNICST},
+keywords = {Android,Covert Channel,Mobile Security},
+pages = {427--435},
+title = {{Towards a systematic study of the covert channel attacks in smartphones}},
+volume = {152},
+year = {2015}
+}
+@article{Spreitzer2018a,
+abstract = {The procfs has been identified as a viable source of side-channel information leaks on mobile devices. Starting with Android M (An-droid 6), access to the procfs has been continuously restricted in order to cope with these attacks. Yet, more recent papers demon-strated that even if access to process-specific information is re-stricted within the procfs, global statistics can still be exploited. However, with state-of-the-art techniques, the search for procfs information leaks requires a significant amount of manual work. This makes an exhaustive analysis of existing and newly introduced procfs resources in terms of information leaks impractical. We introduce ProcHarvester, a systematic and fully automated technique to assess procfs information leaks. ProcHarvester au-tomatically triggers events of interest and later on applies machine learning techniques to identify procfs information leaks. We demon-strate the power of ProcHarvester by identifying information leaks to infer app starts from a set of 100 apps with an accuracy of 96% on Android N (Android 7). Thereby, we outperform the most accurate app inference attack by about 10 percentage points. We also demonstrate the ease of applicability of ProcHarvester by showing how to profile other events such as website launches as well as keyboard gestures, and we identify the first procfs side channels on Android O (Android 8). ProcHarvester advances investigations of procfs information leaks to the next level and will hopefully help to reduce the attack surface of side-channel attacks.},
+annote = {Problem
+/procfs is a virtual file system keeping a lot of information about the app and user. It is possible to access this information via APIs and make inference about user's activity
+
+Insight
+
+
+
+Methodology
+
+
+
+Limitation},
+author = {Spreitzer, Raphael and Kirchengast, Felix and Gruss, Daniel and Mangard, Stefan},
+doi = {10.1145/3196494.3196510},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Spreitzer et al. - 2018 - ProcHarvester.pdf:pdf},
+isbn = {9781450355766},
+keywords = {Android,acm reference format,and stefan mangard,android,automatic analysis,daniel gruss,felix kirchengast,procfs,raphael spreitzer,side-channel analysis},
+pages = {749--763},
+title = {{ProcHarvester}},
+year = {2018}
+}
+@article{Wu2019,
+abstract = {Open TCP/UDP ports are traditionally used by servers to provide application services, but they are also found in many Android apps. In this paper, we present the first open-port analysis pipeline, covering the discovery, diagnosis, and security assessment, to systematically understand open ports in Android apps and their threats. We design and deploy a novel on-device crowdsourcing app and its server-side analytic engine to continuously monitor open ports in the wild. Over a period of ten months, we have collected over 40 million port monitoring records from 3,293 users in 136 countries worldwide, which allow us to observe the actual execution of open ports in 925 popular apps and 725 built-in system apps. The crowdsourcing also provides us a more accurate view of the pervasiveness of open ports in Android apps at 15.3%, much higher than the previous estimation of 6.8%. We also develop a new static diagnostic tool to reveal that 61.8% of the open-port apps are solely due to embedded SDKs, and 20.7% suffer from insecure API usages. Finally, we perform three security assessments of open ports: (i) vulnerability analysis revealing five vulnerability patterns in open ports of popular apps, e.g., Instagram, Samsung Gear, Skype, and the widely-embedded Facebook SDK, (ii) inter-device connectivity measurement in 224 cellular networks and 2,181 WiFi networks through crowdsourced network scans, and (iii) experimental demonstration of effective denial-of-service attacks against mobile open ports.},
+annote = {Problem
+Open ports cause several security issues such as DoS and privacy leak in Android apps. 
+
+Insight
+With crowdsourcing, it is possible to monitor open ports, packets sent and received and utilize clustering to perform the analysis. 
+
+Methodology
+Using crowdsourcing to discover the open ports and then diagnosis by static analysis. Lastly, perform security assesment to vulnerability analysis, inter device connectivity and DoS. Since the app should be monitoring in specific short interval and it is possible the device goes off, AlarmManager is used to set alarms when the screen goes off so as the app monitors the ports in 5 min time interval. 
+Conclusion and future work
+
+},
+author = {Wu, Daoyuan and Gao, Debin and Chang, Rocky K. C. and He, En and Cheng, Eric K. T. and Deng, Robert H.},
+doi = {10.14722/ndss.2019.23171},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Understanding Open Ports in Android.pdf:pdf},
+isbn = {189156255X},
+number = {February},
+title = {{Understanding Open Ports in Android Applications: Discovery, Diagnosis, and Security Assessment}},
+year = {2019}
+}
+@article{Liu2020,
+abstract = {We introduce screen gleaning, a TEMPEST attack in which the screen of a mobile device is read without a visual line of sight, revealing sensitive information displayed on the phone screen. The screen gleaning attack uses an antenna and a software-defined radio (SDR) to pick up the electromagnetic signal that the device sends to the screen to display, e.g., a message with a security code. This special equipment makes it possible to recreate the signal as a gray-scale image, which we refer to as an emage. Here, we show that it can be used to read a security code. The screen gleaning attack is challenging because it is often impossible for a human viewer to interpret the emage directly. We show that this challenge can be addressed with machine learning, specifically, a deep learning classifier. Screen gleaning will become increasingly serious as SDRs and deep learning continue to rapidly advance. In this paper, we demonstrate the security code attack and we propose a testbed that provides a standard setup in which screen gleaning could be tested with different attacker models. Finally, we analyze the dimensions of screen gleaning attacker models and discuss possible countermeasures with the potential to address them.},
+archivePrefix = {arXiv},
+arxivId = {2011.09877},
+author = {Liu, Zhuoran and Samwel, Niels and Weissbart, L{\'{e}}o and Zhao, Zhengyu and Lauret, Dirk and Batina, Lejla and Larson, Martha},
+eprint = {2011.09877},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Screen Gleaming.pdf:pdf},
+issn = {23318422},
+journal = {arXiv},
+title = {{Screen gleaning: a screen reading tempest attack on mobile devices exploiting an electromagnetic side channel}},
+year = {2020}
+}
+@misc{,
+annote = {The difinition of covert channel and required quality factors were brilliant and must to be noticed when introducing covert channels.},
+title = {{2020 - Bankrupt Covert Channel - Turning Network Predictability into Vulnerability.pdf}}
+}
+@article{Spreitzer2018b,
+abstract = {Although the Android system has been continuously hardened against side-channel attacks, there are still plenty of APIs available that can be exploited. However, most side-channel analyses in the literature consider specifically chosen APIs (or resources) in the Android framework, after a manual analysis of APIs for possible information leaks has been performed. Such a manual analysis is a tedious, time consuming, and error-prone task, meaning that information leaks tend to be overlooked. To overcome this tedious task, we introduce SCAnDroid, a framework that automatically profiles the Java-based Android API for possible information leaks. Events of interest, such as website launches, Google Maps queries, or application starts, are triggered automatically, and while these events are being triggered, the Java-based Android API is analyzed for possible information leaks that allow inferring these events later on. To assess the Android API for information leaks, SCAnDroid relies on dynamic time warping. By applying SCAnDroid on Android 8 (Android Oreo), we identified several Android APIs that allow inferring website launches, Google Maps queries, and application starts. The triggered events are by no means exhaustive but have been chosen to demonstrate the broad applicability of SCAnDroid. Among the automatically identified information leaks are, for example, the Java.io.File API, the android.os.storage.StorageManager API, and several methods within the android.net.TrafficStats API. Thereby, we identify the first side-channel leaks in the Android API on Android 8 (Android Oreo).},
+annote = {Problem
+How can we automatically infer some APIs leak data? Given some events of interest, what information can be exploited to infer these events
+
+Insight
+Some APIs with normal permission can leak information about the sensitive behavior of the app: networkstat can reveal the app name since there is different fingerprint for different apps. 
+How can we automatically detect them?
+
+Methodology
+1) Parsing the Android framework and retrieve list of constructurs and methods with has, on and get in their name.
+
+2) generate test cases manually and inspect the methods retrieved at runtime. To inspect the methods, we look for their return value: primitive data type or object (need to access its internal objects that are primitive) 
+
+3) have a trace of (e,t) which shows event e and time series of it happening with its value. 
+
+
+
+Side Channel type = API usage : NetworkStat, file , storage, telephony.getDataActivity, Traffic Stat
+
+
+
+4) Use ML to see if the traces for different execution times are the same and show specific pattern. 
+
+
+LImitation and Future Work
+
+1) Dependent to the test inputs
+2) What if the side channel is not only time-sensitive but also dependent to other events ?
+3) many events such as callbacks are not considered. they may have effect on the general output.},
+author = {Spreitzer, Raphael and Palfinger, Gerald and Mangard, Stefan},
+doi = {10.1145/3212480.3212506},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Spreitzer, Palfinger, Mangard - 2018 - SCAnDroid Automated side-channel analysis of android APIs(3).pdf:pdf},
+isbn = {9781450357319},
+journal = {WiSec 2018 - Proceedings of the 11th ACM Conference on Security and Privacy in Wireless and Mobile Networks},
+keywords = {Android API,Automatic analysis,Java API,Side-channel analysis},
+number = {3},
+pages = {224--235},
+title = {{SCAnDroid: Automated side-channel analysis of android APIs}},
+year = {2018}
+}
+@article{Lee,
+annote = {Problem
+
+
+Insight
+
+
+
+Methodology
+
+
+Conclusion},
+author = {Lee, Yu-tsung and Enck, William and Chen, Haining and Vijayakumar, Hayawardh and Li, Ninghui and Qian, Zhiyun and Wang, Daimeng and Petracca, Giuseppe and Jaeger, Trent and Carolina, North and Riverside, U C},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/FlowCog - Usenix18.pdf:pdf},
+title = {{PolyScope : Multi-Policy Access Control Analysis to Compute Authorized Attack Operations in Android Systems}}
+}
+@misc{,
+title = {{SteganoCC}},
+url = {http://steganocc.gforge.inria.fr/#getting-the-code}
+}
+@article{VanEde2020,
+abstract = {Mobile-application fingerprinting of network traffic is valuable for many security solutions as it provides insights into the apps active on a network. Unfortunately, existing techniques require prior knowledge of apps to be able to recognize them. However, mobile environments are constantly evolving, i.e., apps are regularly installed, updated, and uninstalled. Therefore, it is infeasible for existing fingerprinting approaches to cover all apps that may appear on a network. Moreover, most mobile traffic is encrypted, shows similarities with other apps, e.g., due to common libraries or the use of content delivery networks, and depends on user input, further complicating the fingerprinting process. As a solution, we propose FLOWPRINT, a semi-supervised approach for fingerprinting mobile apps from (encrypted) net- work traffic. We automatically find temporal correlations among destination-related features of network traffic and use these correlations to generate app fingerprints. Our approach is able to fingerprint previously unseen apps, something that existing techniques fail to achieve. We evaluate our approach for both Android and iOS in the setting of app recognition, where we achieve an accuracy of 89.2%, significantly outperforming state- of-the-art solutions. In addition, we show that our approach can detect previously unseen apps with a precision of 93.5%, detecting 72.3% of apps within the first five minutes of communication.},
+author = {van Ede, Thijs and Bortolameotti, Riccardo and Continella, Andrea and Ren, Jingjing and Dubois, Daniel J. and Lindorfer, Martina and Choffnes, David and van Steen, Maarten and Peter, Andreas},
+doi = {10.14722/ndss.2020.24412},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Flowprint-slides.pdf:pdf},
+title = {{FlowPrint: Semi-Supervised Mobile-App Fingerprinting on Encrypted Network Traffic}},
+year = {2020}
+}
+@article{Mi2021,
+author = {Mi, Xianghang and Wang, Xiaofeng},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Your phone is my proxy.pdf:pdf},
+isbn = {1891562665},
+number = {February},
+title = {{Your Mobile Phone is My Proxy : Understanding and Detecting Mobile Proxy Networks}},
+year = {2021}
+}
+@article{Pan2018,
+abstract = {Android apps having access to private information may be legitimate, depending on whether the app provides users enough semantics to justify the access. Existing works analyzing app semantics are coarse-grained, staying on the app-level. That is, they can only identify whether an app, as a whole, should request a certain permission, but cannot answer whether a specific app behavior under certain runtime context, such as an information flow, is correctly justified. To address this issue, we propose FlowCog, an automated, flow-level system to extract flow-specific semantics and correlate such semantics with given information flows. Particularly, FlowCog statically finds all the Android views that are related to the given flow via control or data dependencies, and then extracts semantics, such as texts and images, from these views and associated layouts. Next, FlowCog adopts a natural language processing (NLP) approach to infer whether the extracted semantics are correlated with the given flow. FlowCog is open-source and available at https://github.com/SocietyMaster/FlowCog. Our evaluation shows that FlowCog can achieve a precision of 90.1% and a recall of 93.1%.},
+annote = {Problem
+
+
+Insight
+We can extract semantical information about the information flows in Android app to classify information flows in two groups: legitimate and illegitimate.
+
+
+Methodology
+1) Find information flow with FlowDroid.
+2) Find activation statements: FlowCog extracts list of all possible callbacks from the layout files and the registercallback method and annotation. It saves the list of callbacks. For each statement, it reversely attmpts to get to the source by checking the path of function calls and callback registeration. 
+3) Find gaurding statements:
+4) Find view dependencies: A view can initiate the data flow according to its vallue, event, or affect of its meta data on gaurding conditions. Each view is selected as a source and the event triger or gauarding condition is considered as the sink. Then, the data flow is detected. 
+5) Semantic extraction: Semantics exist in views, layout elements and their destricption as well as in app's description on Google view 
+
+6) Dynamic analysis is performed by instrumenting the text-based functions that modify the value of the views. Moreover, AppsPlayGround is used to install and dynamically generate events for apps within 20 min. The logs extracted here are used furthur to the values of variables.
+
+Conclusion and Future work
+
+},
+author = {Pan, Xiang and Cao, Yinzhi and Du, Xuechao and He, Boyuan and Fang, Gan and Chen, Yan},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/sec18-pan.pdf:pdf},
+isbn = {9781939133045},
+journal = {Proceedings of the 27th USENIX Security Symposium},
+pages = {1669--1685},
+title = {{FlowCog: Context-aware semantics extraction and analysis of information flow leaks in android apps}},
+year = {2018}
+}
+@article{Author2017,
+author = {Author, Anonymous},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Preventing and detecting via static infrerence android.pdf:pdf},
+isbn = {1891562665},
+number = {May},
+title = {{LeakSpotting : Preventing and Detecting State Inference Attacks on Android}},
+year = {2017}
+}
+@article{Hagen2021,
+annote = {Problem
+Contact discovery is possible in many of the existing mobile mesengers APIs. 
+
+
+Insight
+
+
+
+Methodology
+
+
+
+Conclusion},
+author = {Hagen, Christoph and Weinert, Christian and Sendner, Christoph and Dmitrienko, Alexandra and Schneider, Thomas},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/All the numbers are the US.pdf:pdf},
+isbn = {1891562665},
+journal = {PREPRINT - Annual Network and Distributed System Security Symposium (NDSS)},
+number = {February},
+title = {{All the Numbers are US: Large-scale Abuse of Contact Discovery in Mobile Messengers}},
+url = {https://encrypto.de/papers/HWSDS21.pdf},
+year = {2021}
+}
+@article{Aafer,
+annote = {***Permission to API mapping: 
+Good for developers not to make mistake such as over-priviledge.
+
+*** How do they detect the relationship between permissions and APIs in Android codebase?
+
+
+***Limitation of other works:
+Not specifying the relationship between permissions so as to precisely define mapping of permissions and APIs. In this work, they utilize path-sensitive approach so as to differentiate between APIs and permissions.},
+author = {Aafer, Yousra},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Aafer - Unknown - Precise Android API Protection Mapping Derivation and Reasoning.pdf:pdf;:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Aafer - Unknown - Precise Android API Protection Mapping Derivation and Reasoning(2).pdf:pdf},
+isbn = {9781450356930},
+keywords = {Access Control,Android,Permission Model,access control,acm reference format,and ninghui,android,guanhong tao,jianjun huang,permission model,xiangyu zhang,yousra aafer},
+title = {{Precise Android API Protection Mapping Derivation and Reasoning}}
+}
+@article{Zhang2006,
+abstract = {Call graphs are widely used to represent calling relationships among methods. However, there is not much interest in calling relationships among library methods in many software engineering applications such as program understanding and testing, especially when the library is very big and the calling relationships are not trivial. This paper explores approaches to generate more accurate application call graphs for Java. A new data reachability algorithm is proposed and fine-tuned to resolve library callbacks accurately. Compared to a simple algorithm that generates an application call graph by traversing the whole-program call graph, the fine-tuned data reachability algorithm results in fewer spurious callback edges. In experiments with the spec jvm98 benchmarks, the new algorithm shows a significant reduction in the number of spurious callback edges over the simple algorithm: on average, the number of callback edges is reduced by 74.97%, amounting to overall 64.43% edge reduction for the generated application call graphs. {\textcopyright} 2006 IEEE.},
+author = {Zhang, Weilei and Ryder, Barbara},
+doi = {10.1109/SCAM.2006.9},
+file = {:home/maryam/Documents/PhD/Articles/Concepts/scam2006.pdf:pdf},
+isbn = {0769523536},
+journal = {Proceedings - Sixth IEEE International Workshop on Source Code Analysis and Manipulation, SCAM 2006},
+pages = {63--72},
+title = {{Constructing accurate application call graphs for java to model library callbacks}},
+year = {2006}
+}
+@article{Gordon2015,
+annote = {1. Instrumentation to add logging for any Internet Connection Statements used in packages to see whether they are used at runtime by the application or not. 
+2. Overt Channels are specified and covert channels are considered as the exclusion of them. Intra-procedure data flow analysis is considered. 
+3. Catch and error statements are considered as the point where a covert channel can occur. I don't understand why they are chosen?
+
+
+My questions:
+1. Why only connection-related APIs are considered? 
+2. Why is the analysis mostly on UI elements? What is the reason behind it?},
+author = {Gordon, Michael I and Nguyen, Nguyen and Rinard, Martin and Rubin, Julia and Gordon, Michael I and Nguyen, Nguyen and Rinard, Martin},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Gordon et al. - 2015 - International Conference on Automated Software Engineering Covert Communication in Mobile Applications.pdf:pdf},
+title = {{International Conference on Automated Software Engineering Covert Communication in Mobile Applications}},
+year = {2015}
+}
+@article{Osman2020,
+author = {Osman, Tousif and Mannan, Mohammad and Hengartner, Urs and Youssef, Amr},
+doi = {10.1145/3416124},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Securing Attacks against Side channel by resource veto.pdf:pdf},
+issn = {2692-1626},
+journal = {Digital Threats: Research and Practice},
+number = {4},
+pages = {1--29},
+title = {{Securing Applications against Side-channel Attacks through Resource Access Veto}},
+volume = {1},
+year = {2020}
+}
+@article{Marforio2012,
+author = {Marforio, Claudio and Ritzdorf, Hubert and Francillon, Aur{\'{e}}lien and Capkun, Srdjan},
+isbn = {9781450313124},
+title = {{Analysis of the Communication between Colluding Applications on Modern Smartphones}},
+year = {2012}
+}
+@article{Lalande,
+author = {Lalande, J},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Lalande - Unknown - Hiding Privacy Leaks in Android Applications Using Low-Attention Raising Covert Channels.pdf:pdf},
+keywords = {-smartphone security,android,covert chan-,information hiding,nels,privacy},
+title = {{Hiding Privacy Leaks in Android Applications Using Low-Attention Raising Covert Channels}}
+}
+@article{Alqazzaz2018,
+abstract = {Leakage of sensitive information is still considered one of the potential security threats to mobile operating systems including Android. The Android OS contains some security weaknesses which make it vulnerable to various attacks. One of these design weakness is the side-channel including memory and network-data usage. By monitoring such channels, Android application (app in short) with no permissions (zero-permission) may obtain some private information that is stored on user's mobile devices such as user's identity, login info, and the geo-location. In this study, we review side-channel attacks as well as runtime information attacks. Moreover, we survey the discovered side-channels of information leaks on Android. To the best of our knowledge, this is the first study that covers both the Android side-channels and runtime information attacks used to leak information.},
+author = {Alqazzaz, Ali and Alrashdi, Ibrahim and Alharthi, Raed and Aloufi, Esam and Zohdy, Mohamed A.},
+doi = {10.1109/CSCI46756.2018.00156},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/An Insight to Android Side Channel Attack.pdf:pdf},
+isbn = {9781728113609},
+journal = {Proceedings - 2018 International Conference on Computational Science and Computational Intelligence, CSCI 2018},
+keywords = {Android,Information leakage,Information security,Side-channel attack},
+pages = {776--780},
+publisher = {IEEE},
+title = {{An insight into android side-channel attacks}},
+year = {2018}
+}
+@article{Millen,
+author = {Millen, Jonathan K},
+pages = {60--66},
+title = {{Covert channel capacity}}
+}
+@article{DominguezPerez2019,
+abstract = {Given the event-driven and framework-based architecture of Android apps, finding the ordering of callbacks executed by the framework remains a problem that affects every tool that requires inter-callback reasoning. Previous work has focused on the ordering of callbacks related to the Android components and GUI events. But the execution of callbacks can also come from direct calls of the framework (API calls). This paper defines a novel program representation, called Callback Control Flow Automata (CCFA), that specifies the control flow of callbacks invoked via a variety of sources. We present an analysis to automatically construct CCFAs by combining two callback control flow representations developed from the previous research, namely, Window Transition Graphs (WTGs) and Predicate Callback Summaries (PCSs). To demonstrate the usefulness of our representation, we integrated CCFAs into two client analyses: a taint analysis using FLOWDROID, and a value-flow analysis that computes source and sink pairs of a program. Our evaluation shows that we can compute CCFAs efficiently and that CCFAs improved the callback coverages over WTGs. As a result of using CCFAs, we obtained 33 more true positive security leaks than FLOWDROID over a total of 55 apps we have run. With a low false positive rate, we found that 22.76% of source-sink pairs we computed are located in different callbacks and that 31 out of 55 apps contain source-sink pairs spreading across components. Thus, callback control flow graphs and inter-callback analysis are indeed important. Although this paper mainly uses Android, we believe that CCFAs can be useful for modeling control flow of callbacks for other},
+author = {{Dominguez Perez}, Danilo and Le, Wei},
+doi = {10.1109/tse.2019.2893207},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Dominguez Perez, Le - 2019 - Specifying Callback Control Flow of Mobile Apps Using Finite Automata.pdf:pdf},
+issn = {0098-5589},
+journal = {IEEE Transactions on Software Engineering},
+number = {c},
+pages = {1--1},
+publisher = {IEEE},
+title = {{Specifying Callback Control Flow of Mobile Apps Using Finite Automata}},
+volume = {5589},
+year = {2019}
+}
+@article{Wu2016,
+abstract = {Resource leak is a common bug in Android applications (apps for short). In general, it is caused by missing release operations of the resources provided by Android (like Camera, Media Player and Sensors) that require programmers to explicitly release them. It might lead to several serious problems for the app and system, such as performance degradation and system crash. This paper presents Relda2, a light-weight, scalable and practical static analysis tool, for detecting resource leaks in the byte-code of Android apps automatically. It supports two analysis techniques (flow-insensitive for quick scanning and flow-sensitive for accurate scanning), and performs interprocedural analysis to get more precise bug reports. In addition, our tool is practical to analyze real-world apps, and has been applied to 103 Android apps, including industry applications and open source programs. We have found 67 real resource leaks in these apps, which we confirmed manually. A demo video of our tool can be found at the website: https://www.youtube.com/watch?v=Mk-MFcHpTds.},
+annote = {Problem:
+There is no solution for detecting resource leakage considering various types of resources and modeling event-driven behavior of android.
+
+Insight: It is possible to store the resource summary and callback order. Moreover, we can extract the CFG of an app with respect to its event-driven behavior from the code. 
+
+
+Methodology:
+A resource table and Callback Graph is stored to customize what users need as target resource and possible callback over them. In Preprocess phase, dex is retrieved and FCG is constructed. In Analysis phase, the resource request and release are obtained in the FCG and implicit callbacks are refined. In the bug report, the analysis is performed. For different resources, the analysis is done in a separate thread making the analysis faster.
+
+
+Limitations:
+The resources and CBG are manually extracted. Resource leak is detected if there is no release. However, it is possible that for a single release, the app leaks resource in other path executions.},
+author = {Wu, Tianyong and Liu, Jierui and Deng, Xi and Yan, Jun and Zhang, Jian},
+doi = {10.1145/2970276.2970278},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Wu et al. - 2016 - Relda2 An effective static analysis tool for resource leak detection in android apps.pdf:pdf},
+isbn = {9781450338455},
+journal = {ASE 2016 - Proceedings of the 31st IEEE/ACM International Conference on Automated Software Engineering},
+keywords = {Android apps,Byte-code,Resource leak,Static analysis},
+pages = {762--767},
+publisher = {ACM},
+title = {{Relda2: An effective static analysis tool for resource leak detection in android apps}},
+year = {2016}
+}
+@article{Calciati,
+abstract = {Developers continuously update their Android apps to keep up with competitors in the market. Such constant updates do not bother end users, since by default the Android platform automatically pushes the most recent compatible release on the device, unless there are major changes in the list of requested permissions that users have to explicitly grant. The lack of explicit user's approval for each application update, however, may lead to significant risks for the end user, as the new release may include new subtle behaviors which may be privacy-invasive. The introduction of permission groups in the Android permission model makes this problem even worse: if a user gives a single permission within a group, the application can silently request further permissions in this group with each update-without having to ask the user. In this paper, we explain the threat that permission groups may pose for the privacy of Android users. We run an empirical study on 2,865,553 app releases, and we show that in a representative app store more than ∼17% of apps request at least once in their lifetime new dangerous permissions that the operating system grants without any user's approval. Our analyses show that apps actually use over 56% of such automatically granted permissions, although most of their descriptions do not explicitly explain for what purposes. Finally, our manual inspection reveals clear abuses of apps that leak sensitive data such as user's accurate location, list of contacts, history of phone calls, and emails which are protected by permissions that the user never explicitly acknowledges.},
+annote = {Problem
+Having grouped permissions in a permission group opens up the possibility of misusing other permissions in the same group. 
+
+Insight
+
+
+
+Methodology
+
+
+
+Conclusion, limitation and future work
+
+
+This article gives interesting information on permission management in Android and its vulnerbilities such as possibility to misuse them for leakage of information. I assume the application list and the internal information are very useful!},
+author = {Calciati, Paolo and Kuznetsov, Konstantin and Gorla, Alessandra and Zeller, Andreas},
+doi = {10.1145/3379597.3387469},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Permission/MSR'10 - Automatically Granted Permissions in Android apps.pdf:pdf},
+isbn = {9781450375177},
+keywords = {#Permission},
+mendeley-tags = {#Permission},
+number = {20},
+title = {{Automatically Granted Permissions in Android apps An Empirical Study on their Prevalence and on the Potential Threats for Privacy}},
+volume = {12}
+}
+@article{Shahbaz2009,
+abstract = {Automata learning techniques are getting significant importance for their applications in a wide variety of software engineering problems, especially in the analysis and testing of complex systems. In recent studies, a previous learning approach [1] has been extended to synthesize Mealy machine models which are specifically tailored for I/O based systems. In this paper, we discuss the inference of Mealy machines and propose improvements that reduces the worst-time learning complexity of the existing algorithm. The gain over the complexity of the proposed algorithm has also been confirmed by experimentation on a large set of finite state machines. {\textcopyright} 2009 Springer-Verlag Berlin Heidelberg.},
+author = {Shahbaz, Muzammil and Groz, Roland},
+doi = {10.1007/978-3-642-05089-3_14},
+file = {:home/maryam/Documents/PhD/Articles/Concepts/Infering Mealy Machines.pdf:pdf},
+isbn = {3642050883},
+issn = {03029743},
+journal = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+pages = {207--222},
+title = {{Inferring mealy machines}},
+volume = {5850 LNCS},
+year = {2009}
+}
+@techreport{Rasthofer2014,
+abstract = {Today's smartphone users face a security dilemma: many apps they install operate on privacy-sensitive data, although they might originate from developers whose trustworthiness is hard to judge. Researchers have addressed the problem with more and more sophisticated static and dynamic analysis tools as an aid to assess how apps use private user data. Those tools, however, rely on the manual configuration of lists of sources of sensitive data as well as sinks which might leak data to untrusted observers. Such lists are hard to come by. We thus propose SUSI, a novel machine-learning guided approach for identifying sources and sinks directly from the code of any Android API. Given a training set of hand-annotated sources and sinks, SUSI identifies other sources and sinks in the entire API. To provide more fine-grained information, SUSI further categorizes the sources (e.g., unique identifier, location information, etc.) and sinks (e.g., network, file, etc.). For Android 4.2, SUSI identifies hundreds of sources and sinks with over 92% accuracy, many of which are missed by current information-flow tracking tools. An evaluation of about 11,000 malware samples confirms that many of these sources and sinks are indeed used. We furthermore show that SUSI can reliably classify sources and sinks even in new, previously unseen Android versions and components like Google Glass or the Chromecast API.},
+author = {Rasthofer, Siegfried and Arzt, Steven and Bodden, Eric},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rasthofer, Arzt, Bodden - 2014 - A Machine-learning Approach for Classifying and Categorizing Android Sources and Sinks.pdf:pdf},
+isbn = {1891562355},
+title = {{A Machine-learning Approach for Classifying and Categorizing Android Sources and Sinks}},
+url = {https://github.com/secure-software-engineering/SuSi},
+year = {2014}
+}
+@article{Wang,
+annote = {Problem:
+How many of the apps are diehard? What mechanisms do they use? 
+
+Insight:
+It is possible to extract methods that perform app killing and stoping process from Android source code. 
+
+Methodology:
+
+
+Limitations:},
+author = {Wang, Haoyu and Wang, Ting},
+file = {:home/maryam/Documents/PhD/Articles/event-driven/DiehardApp.pdf:pdf},
+isbn = {9781450367684},
+number = {1},
+title = {{Demystifying Diehard Android Apps}}
+}
+@article{Radhakrishna2017,
+abstract = {Event-driven programming frameworks, such as Android, are based on components with asynchronous interfaces. The protocols for interacting with these components can often be described by finite-state machines we dub callback typestates. Callback typestates are akin to classical typestates, with the difference that their outputs (callbacks) are produced asynchronously. While useful, these specifications are not commonly available, because writing them is difficult and error-prone. Our goal is to make the task of producing callback typestates significantly easier. We present a callback typestate assistant tool, DroidStar, that requires only limited user interaction to produce a callback typestate. Our approach is based on an active learning algorithm, L∗. We improved the scalability of equivalence queries (a key component of L∗), thus making active learning tractable on the Android system. We use DroidStar to learn callback typestates for Android classes both for cases where one is already provided by the documentation, and for cases where the documentation is unclear. The results show that DroidStar learns callback typestates accurately and efficiently. Moreover, in several cases, the synthesized callback typestates uncovered surprising and undocumented behaviors.},
+author = {Radhakrishna, Arjun and Mover, Sergio and Lewchenko, Nicholas V. and Sripada, Krishna Chaitanya and Meier, Shawn and Zufferey, Damien and Chang, Bor Yuh Evan and {\v{C}}ern{\'{y}}, Pavol},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Radhakrishna et al. - 2017 - DroidStar Callback typestates for android classes.pdf:pdf},
+isbn = {9781450356381},
+journal = {arXiv},
+keywords = {Active learning,Android,Specification inference,Typestate},
+title = {{DroidStar: Callback typestates for android classes}},
+year = {2017}
+}
+@article{Au2012,
+abstract = {Modern smartphone operating systems (OSs) have been developed with a greater emphasis on security and protecting privacy. One of the mechanisms these systems use to protect users is a permission system, which requires developers to declare what sensitive resources their applications will use, has users agree with this request when they install the application and constrains the application to the requested resources during runtime. As these permission systems become more common, questions have risen about their design and implementation. In this paper, we perform an analysis of the permission system of the Android smartphone OS in an attempt to begin answering some of these questions. Because the documentation of Android's permission system is incomplete and because we wanted to be able to analyze several versions of Android, we developed PScout, a tool that extracts the permission specification from the Android OS source code using static analysis. PScout overcomes several challenges, such as scalability due to Android's 3.4 million line code base, accounting for permission enforcement across processes due to Android's use of IPC, and abstracting Android's diverse permission checking mechanisms into a single primitive for analysis. We use PScout to analyze 4 versions of Android spanning version 2.2 up to the recently released Android 4.0. Our main findings are that while Android has over 75 permissions, there is little redundancy in the permission specification. However, if applications could be constrained to only use documented APIs, then about 22% of the non-system permissions are actually unnecessary. Finally, we find that a trade-off exists between enabling least-privilege security with fine-grained permissions and maintaining stability of the permission specification as the Android OS evolves. Copyright {\textcopyright} 2012 ACM.},
+annote = {In this work, PsCout tries to map permissions to API calls in applications so as to find a general mapping of ANdroid APIs and permissiosn. Regarding to that, it specifies some pattern of utilizing APIs that require permissions: permission checking, intent and content provier acccess. With this pattern and a set of applications, it tries to find the mapping. 
+However, not all APIs called within a permission check can be mapped to it. As well as that, some apps use more permissions and actually dont call them. It is possible that the result is wrong.
+
+In reality, it is essential to find the relationship between permissions and APIs from Google source code rather than application themselves and pattern of usage of them.},
+author = {Au, Kathy Wain Yee and Zhou, Yi Fan and Huang, Zhen and Lie, David},
+doi = {10.1145/2382196.2382222},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Au et al. - 2012 - PScout Analyzing the Android permission specification.pdf:pdf},
+isbn = {9781450316507},
+issn = {15437221},
+journal = {Proceedings of the ACM Conference on Computer and Communications Security},
+keywords = {Android,Permissions,Smartphone},
+pages = {217--228},
+title = {{PScout: Analyzing the Android permission specification}},
+year = {2012}
+}
+@article{Bonett2018,
+abstract = {Mobile application security has been one of the major areas of security research in the last decade. Numerous application analysis tools have been proposed in response to malicious, curious, or vulnerable apps. However, existing tools, and specifically, static analysis tools, trade soundness of the analysis for precision and performance, and are hence soundy. Unfortunately, the specific unsound choices or flaws in the design of these tools are often not known or well-documented, leading to a misplaced confidence among researchers, developers, and users. This paper proposes the Mutation-based soundness evaluation ($\mu$SE) framework, which systematically evaluates Android static analysis tools to discover, document, and fix, flaws, by leveraging the well-founded practice of mutation analysis. We implement $\mu$SE as a semi-automated framework, and apply it to a set of prominent Android static analysis tools that detect private data leaks in apps. As the result of an in-depth analysis of one of the major tools, we discover 13 undocumented flaws. More importantly, we discover that all 13 flaws propagate to tools that inherit the flawed tool. We successfully fix one of the flaws in cooperation with the tool developers. Our results motivate the urgent need for systematic discovery and documentation of unsound choices in soundy tools, and demonstrate the opportunities in leveraging mutation testing in achieving this goal.},
+annote = {Problem
+The security analysis tools suffers from soundiness. 
+
+Insight},
+archivePrefix = {arXiv},
+arxivId = {1806.09761},
+author = {Bonett, Richard and Kafle, Kaushal and Moran, Kevin and Nadkarni, Adwait and Poshyvanyk, Denys},
+eprint = {1806.09761},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bonett et al. - 2018 - Discovering flaws in security-focused static analysis tools for android using systematic mutation.pdf:pdf},
+isbn = {9781939133045},
+journal = {Proceedings of the 27th USENIX Security Symposium},
+pages = {1263--1280},
+title = {{Discovering flaws in security-focused static analysis tools for android using systematic mutation}},
+year = {2018}
+}
+@article{Andow2020,
+abstract = {Identifying privacy-sensitive data leaks by mobile applications has been a topic of great research interest for the past decade. Technically, such data flows are not "leaks" if they are disclosed in a privacy policy. To address this limitation in automated analysis, recent work has combined program analysis of applications with analysis of privacy policies to determine the flow-to-policy consistency, and hence violations thereof. However, this prior work has a fundamental weakness: it does not differentiate the entity (e.g., first-party vs. third-party) receiving the privacy-sensitive data. In this paper, we propose POLICHECK, which formalizes and implements an entity-sensitive flow-to-policy consistency model. We use POLICHECK to study 13,796 applications and their privacy policies and find that up to 42.4% of applications either incorrectly disclose or omit disclosing their privacy-sensitive data flows. Our results also demonstrate the significance of considering entities: without considering entity, prior approaches would falsely classify up to 38.4% of applications as having privacy-sensitive data flows consistent with their privacy policies. These false classifications include data flows to third-parties that are omitted (e.g., the policy states only the first-party collects the data type), incorrect (e.g., the policy states the third-party does not collect the data type), and ambiguous (e.g., the policy has conflicting statements about the data type collection). By defining a novel automated, entity-sensitive flow-to-policy consistency analysis, POLICHECK provides the highest-precision method to date to determine if applications properly disclose their privacy-sensitive behaviors.},
+author = {Andow, Benjamin and Mahmud, Samin Yaseer and Whitaker, Justin and Enck, William and Reaves, Bradley and Singh, Kapil and Egelman, Serge},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Andow et al. - 2020 - Actions Speak Louder than Words Entity-Sensitive Privacy Policy and Data Flow Analysis with P OLI C HECK.pdf:pdf},
+isbn = {9781939133175},
+journal = {USENIX Security Symposium},
+pages = {23--25},
+title = {{Actions Speak Louder than Words : Entity-Sensitive Privacy Policy and Data Flow Analysis with P OLI C HECK}},
+year = {2020}
+}
+@article{Huang2018,
+abstract = {The control flows of Android apps are largely driven by the protocols that govern how callback APIs are invoked in response to various events. When these callback APIs evolve along with the Android framework, the changes in their invocation protocols can induce unexpected control flows to existing Android apps, causing various compatibility issues. We refer to these issues as callback compatibility issues. While Android framework updates have received due attention, little is known about their impacts on app control flows and the callback compatibility issues thus induced. To bridge the gap, we examined Android documentations and conducted an empirical study on 100 real-world callback compatibility issues to investigate how these issues were induced by callback API evolutions. Based on our empirical findings, we propose a graph-based model to capture the control flow inconsistencies caused by API evolutions and devise a static analysis technique, Cider, to detect callback compatibility issues. Our evaluation of Cider on 20 popular open-source Android apps shows that Cider is effective. It detected 13 new callback compatibility issues in these apps, among which 12 issues were confirmed and 9 issues were fixed.},
+author = {Huang, Huaxun and Liu, Yepang and Wei, Lili and Cheung, Shing Chi},
+doi = {10.1145/3238147.3238181},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Huang et al. - 2018 - Understanding and detecting callback compatibility issues for android applications.pdf:pdf},
+isbn = {9781450359375},
+journal = {ASE 2018 - Proceedings of the 33rd ACM/IEEE International Conference on Automated Software Engineering},
+keywords = {Android API,Callback compatibility,Empirical study,Static analysis},
+pages = {532--542},
+title = {{Understanding and detecting callback compatibility issues for android applications}},
+year = {2018}
+}
+@article{LucaScoccia2020,
+abstract = {To enable app interoperability, the Android platform exposes installed application methods (IAMs), i.e., APIs that allow developers to query for the list of apps installed on a user's device. It is known that information collected through IAMs can be used to precisely deduce end-users interests and personal traits, thus raising privacy concerns. In this paper, we present a large-scale empirical study investigating the presence of IAMs in Android apps and their usage by Android developers. Our results highlight that: (i) IAMs are widely used in commercial applications while their popularity is limited in open-source ones; (ii) IAM calls are mostly performed in included libraries code; (iii) more than one-third of libraries that employ IAMs are advertisement libraries; (iv) a small number of popular advertisement libraries account for over 33% of all usages of IAMs by bundled libraries; (v) developers are not always aware that their apps include IAMs calls. Based on the collected data, we confirm the need to (i) revise the way IAMs are currently managed by the Android platform, introducing either an ad-hoc permission or an opt-out mechanism and (ii) improve both developers and end-users awareness with respect to the privacy-related concerns raised by IAMs.},
+annote = {The important note about this study is the extensive usage of installed apps to get information from one another. This is a significant point in studying covert channels and specifically Information flows. 
+
+Questions: How common are IAMs in preparing a covert channel attack?},
+author = {{Luca Scoccia}, Gian and Razavi razavik, Kaveh and {ETH Z{\"{u}}rich Z{\"{u}}rich}, Ethzch},
+doi = {10.1145/3387905.3388594},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Luca Scoccia, Razavi razavik, ETH Z{\"{u}}rich Z{\"{u}}rich - 2020 - Leave my Apps Alone! A Study on how Android Developers Access Installed Apps.pdf:pdf},
+isbn = {9781450379595},
+journal = {Icse},
+keywords = {#Advertising,#AppCollection,#Covert_Channels,#IAM,Android,Apps,Privacy},
+mendeley-tags = {#Advertising,#AppCollection,#Covert_Channels,#IAM},
+number = {i},
+title = {{Leave my Apps Alone! A Study on how Android Developers Access Installed Apps on User's Device}},
+url = {https://doi.org/10.1145/3387905.3388594},
+year = {2020}
+}
+@article{Bohme2021,
+annote = {Problem 
+Most of the existing testing tools suffer from the fact that the paths are long and they get stuck in them.
+
+Insight
+How can we cover more codes by saving the state of the paths we have already visited and looks to be more stable?
+
+Methodology
+Utilization of VM snapshoting to take a snapshot of a device/app state?
+Extract a graph of states of testing
+
+Conclusion and Future work
+TextViews are put aside},
+author = {B{\"{o}}hme, Marcel and Cojocaru, Lucia},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/B{\"{o}}hme, Cojocaru - 2021 - Time-travel Testing of Android Apps.pdf:pdf},
+isbn = {9781450371216},
+keywords = {#AppCollection},
+mendeley-tags = {#AppCollection},
+title = {{Time-travel Testing of Android Apps}},
+year = {2021}
+}
+@article{Sadeghi2018,
+abstract = {Permission-induced attacks, i.e., security breaches enabled by permission misuse, are among the most critical and frequent issues threatening the security of Android devices. By ignoring the temporal aspects of an attack during the analysis and enforcement, the state-of-the-art approaches aimed at protecting the users against such attacks are prone to have low-coverage in detection and high-disruption in prevention of permission-induced attacks. To address this shortcomings, we present Terminator, a temporal permission analysis and enforcement framework for Android. Leveraging temporal logic model checking,Terminator's analyzer identifies permission-induced threats with respect to dynamic permission states of the apps. At runtime, Terminator's enforcer selectively leases (i.e., temporarily grants) permissions to apps when the system is in a safe state, and revokes the permissions when the system moves to an unsafe state realizing the identified threats. The results of our experiments, conducted over thousands of apps, indicate that Terminator is able to provide an effective, yet non-disruptive defense against permission-induced attacks. We also show that our approach, which does not require modification to the Android framework or apps' implementation logic, is highly reliable and widely applicable.},
+annote = {Problem
+
+
+Insight
+
+
+
+Methodology
+
+
+Conclusion},
+author = {Sadeghi, Alireza and Jabbarvand, Reyhaneh and Ghorbani, Negar and Bagheri, Hamid and Malek, Sam},
+doi = {10.1145/3180155.3180172},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Permission/ICSE'18- A Temporal Permission Analysis and Enforcement Framework for
+Android.pdf:pdf},
+isbn = {9781450356381},
+issn = {02705257},
+journal = {Proceedings - International Conference on Software Engineering},
+keywords = {Access control (permission),Android,Temporal logic},
+pages = {846--857},
+title = {{A temporal permission analysis and enforcement framework for Android}},
+year = {2018}
+}
+@article{Guo2013,
+abstract = {Android phones come with a host of hardware components embedded in them, such as Camera, Media Player and Sensor. Most of these components are exclusive resources or resources consuming more memory/energy than general. And they should be explicitly released by developers. Missing release operations of these resources might cause serious problems such as performance degradation or system crash. These kinds of defects are called resource leaks. This paper focuses on resource leak problems in Android apps, and presents our lightweight static analysis tool called Relda, which can automatically analyze an application's resource operations and locate the resource leaks. We propose an automatic method for detecting resource leaks based on a modified Function Call Graph, which handles the features of event-driven mobile programming by analyzing the callbacks defined in Android framework. Our experimental data shows that Relda is effective in detecting resource leaks in real Android apps. {\textcopyright} 2013 IEEE.},
+annote = {Problem: Sometimes developers miss to release a resouce in android program ending in resource leakage and exhaustion. There is no automatic solution to handle it. 
+
+
+Insight: It is possible to extract the event driven model from the function calls in android apps statically (function call graph (fcg)) and check for resource request and resource release in this graph.
+
+
+Methodology: The FCG is extracted containing the callbacks that are entry points and the ones defined by the others. By traversing it in a depth first manner, it is possible to identify the resource creation and possible paths to exit points to see if the resource is released or not (only one path is checked).
+
+
+Limitations:
+It is not clear how it handles the callbacks for multi-thread operations. The pattern of the order of callbacks for the activity and resources seems to be detected manually.
+1) Does it Handle the services and inbackground callback invocation and release?
+2) Memory Leakge due to GC is not handled? it is not possible to detect it at this level!
+3) How about other GUI types? How does it handle the correct order of GUIs? How does it define the open and release opearation? How does it define the lifecycle of the android apps?},
+author = {Guo, Chaorong and Zhang, Jian and Yan, Jun and Zhang, Zhiqiang and Zhang, Yanli},
+doi = {10.1109/ASE.2013.6693097},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Guo et al. - 2013 - Characterizing and detecting resource leaks in Android applications.pdf:pdf},
+isbn = {9781479902156},
+journal = {2013 28th IEEE/ACM International Conference on Automated Software Engineering, ASE 2013 - Proceedings},
+keywords = {Android apps,resource leak,static analysis},
+pages = {389--398},
+title = {{Characterizing and detecting resource leaks in Android applications}},
+year = {2013}
+}
+@article{Rasthofer2014a,
+abstract = {#SUSI. They do static analysis (machine learning) to detect sources and sinks, and they categorized them. Features: method name, parameters, value type, parameter type (is interface?), modifiers, class modifiers, name, dataflow to return, dataflow to return, to sink, abstract sink, required permission. For category, class name, method invocation, body contents, parameter type and return value type.},
+annote = {Assumption: a handed set of sources and sinks
+Output: 
+How to evaluate: Check them in malware samples to see if really being misused in reality ...
+
+Challenges in manually retrieving the code:
+1- too many methods
+2- too many difference in different android API versions. 
+3- Permission mapping to API cannot be used as for finding sources and sinks since it is not feasible and also applicable for all APIs.},
+author = {Rasthofer, Siegfried and Arzt, Steven and Bodden, Eric},
+doi = {10.14722/ndss.2014.23039},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rasthofer, Arzt, Bodden - 2014 - A Machine-learning Approach for Classifying and Categorizing Android Sources and Sinks.pdf:pdf},
+isbn = {1891562355},
+number = {February},
+pages = {23--26},
+title = {{A Machine-learning Approach for Classifying and Categorizing Android Sources and Sinks}},
+year = {2014}
+}
+@article{Ren2018,
+abstract = {—Is mobile privacy getting better or worse over time? In this paper, we address this question by studying privacy leaks from historical and current versions of 512 popular Android apps, covering 7,665 app releases over 8 years of app version history. Through automated and scripted interaction with apps and analysis of the network traffic they generate on real mobile devices, we identify how privacy changes over time for individual apps and in aggregate. We find several trends that include increased collection of personally identifiable information (PII) over time across most apps, slow adoption of HTTPS to secure the information sent to other parties, and a large number of third parties being able to link user activity and locations across apps. Interestingly, while privacy is getting worse in aggregate, we find that the privacy risk of individual apps varies greatly over time, and a substantial fraction of apps see little change or even improvement in privacy. Given these trends, we propose metrics for quantifying privacy risk and for providing this risk assessment proactively to help users balance the risks and benefits of installing new versions of apps.},
+annote = {The important part about this work is: how privacy can be analyzed over the lifetime of an app considering it may receive multiple updates. The privacy is investigated by analyzing the traffic of an application looking for sensitive data ...},
+author = {Ren, Jingjing and Lindorfer, Martina and Dubois, Daniel J. and Rao, Ashwin and Choffnes, David and Vallina-Rodriguez, Narseo},
+doi = {10.14722/ndss.2018.23143},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Ren et al. - 2018 - Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions.pdf:pdf},
+keywords = {#vulnerablity},
+mendeley-tags = {#vulnerablity},
+title = {{Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions}},
+year = {2018}
+}
+@article{DeAlfaro2001,
+abstract = {Conventional type systems specify interfaces in terms of values and domains. We present a light-weight formalism that captures the temporal aspects of software component i n terfaces. Speciically, w e use an automata-based language to capture both input assumptions about the order in which the methods of a component are called, and output guarantees about the order in which the component calls external methods. The formalism supports automatic compatibility checks between interface models, and thus constitutes a type system for component interaction. Unlike traditional uses of automata, our formalism is based on an optimistic approach to composition, and on an alternating approach to design reenement. According to the optimistic approach, two components are compatible if there is some environment that can make t h e m w ork together. According to the alternating approach, one interface reenes another if it has weaker input assumptions, and stronger output guarantees. We show that these notions have game-theoretic foundations that lead to eecient algorithms for checking compatibility and reenement.},
+annote = {Probelm:
+In this work, a lightweight formalism for medelling components in the more abstract forms interface is given. 
+
+Insight:
+We can ignore some environment characteristics in modeling a component. This gives us the opportunity to relax the composition of two components by removing some environmental aspects of the whole system and simplifies the behavior.
+
+
+Methodology:
+
+
+Future Work and Limitation:
+I have no idea!
+1. The error state is not possible to detect in this automata.
+2.},
+author = {de Alfaro, Luca and Henzinger, Thomas A.},
+doi = {10.1145/503271.503226},
+file = {:home/maryam/Documents/PhD/Articles/Concepts/Interface automata.pdf:pdf},
+isbn = {1581133901},
+issn = {0163-5948},
+journal = {ACM SIGSOFT Software Engineering Notes},
+number = {5},
+pages = {109--120},
+title = {{Interface automata}},
+volume = {26},
+year = {2001}
+}
+@article{Yang2016,
+abstract = {This work develops a static analysis to create a model of the behavior of an Android application's GUI. We propose the window transition graph (WTG), a model representing the possible GUI window sequences and their associated events and callbacks. A key component and contribution of our work is the careful modeling of the stack of currently-active windows, the changes to this stack, and the effects of callbacks related to these changes. To the best of our knowledge, this is the first detailed study of this important static analysis problem for Android. We develop novel analysis algorithms for WTG construction and traversal, based on this modeling of the window stack. We also describe an application of the WTG for GUI test generation, using path traversals. The evaluation of the proposed algorithms indicates their effectiveness and practicality.},
+author = {Yang, Shengqian and Zhang, Hailong and Wu, Haowei and Wang, Yan and Yan, Dacong and Rountev, Atanas},
+doi = {10.1109/ASE.2015.76},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Yang et al. - 2016 - Static window transition graphs for android.pdf:pdf},
+isbn = {9781509000241},
+journal = {Proceedings - 2015 30th IEEE/ACM International Conference on Automated Software Engineering, ASE 2015},
+keywords = {Android,Control-flow analysis,GUI,Static analysis,Testing},
+pages = {658--668},
+publisher = {IEEE},
+title = {{Static window transition graphs for android}},
+year = {2016}
+}
+@article{Rountev2014,
+abstract = {The popularity of Android software has grown dramatically in the last few years. It is essential for researchers in programming languages and compilers to contribute new techniques in this increasingly important area. Such techniques require a foundation of program analyses for Android. The target of our work is static object reference analysis, which models the ow of object references. Existing reference analyses cannot be applied directly to Android because the software is component-based and event-driven. An Android application is driven by a graphical user interface (GUI), with GUI objects responding to user actions. These objects and the event handlers associated with them ultimately determine the possible ow of control and data. We propose the first static analysis to model GUI-related Android objects, their ow through the application, and their interactions with each other via the abstractions de- fined by the Android platform. A formal semantics for the relevant Android constructs is developed to provide a solid foundation for this and other analyses. Next, we propose a constraint-based reference analysis based on the semantics. The analysis employs a constraint graph to model the ow of GUI objects, the hierarchical structure of these objects, and the effects of relevant Android operations. Experimental evaluation on real-world Android applications strongly suggests that the analysis achieves high precision with low cost. The analysis enables static modeling of control/data ow that is foundational for compiler analyses, instrumentation for event/interaction profiling, static error checking, security analysis, test generation, and automated debugging. It provides a key component to be used by compile-time analysis researchers in the growing area of Android software. Copyright {\textcopyright} 2014 by the Association for Computing Machinery, Inc. (ACM).},
+annote = {Problem - The creation and propagation of views together with their interactions with the activity and listeners define a critical component of runtime bahavior of Android apps. 
+
+Insight - XML layout gives us the information about each GUI element (View) and the callback handling event on it. 
+
+Methodology - 
+PAG of the Views and listeners is extracted for each activity. This gives us the possible relationship between objects in each activity and its corresponding listener/callback.
+
+Limitation - The analysis is imprecise since it is context and flow insesnsitive. The callback order is not modeled. It is not clear why the hierarchical relationship between GUI elements is useful.
+
+
+GUI-driven control/data flow},
+author = {Rountev, Atanas and Yan, Dacong},
+doi = {10.1145/2544137.2544159},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rountev, Yan - 2014 - Static reference analysis for GUI objects in android software(4).pdf:pdf},
+isbn = {9781450326704},
+journal = {Proceedings of the 12th ACM/IEEE International Symposium on Code Generation and Optimization, CGO 2014},
+keywords = {Android,GUI analysis,Reference analysis},
+pages = {143--153},
+title = {{Static reference analysis for GUI objects in android software - 1}},
+year = {2014}
+}
+@article{Sharp2006,
+abstract = {Distributed applications provide numerous advantages related to software performance, reliability, interoperability, and extensibility. This paper focuses on distributed Java programs built with the help of the Remote Method Invocation (RMI) mechanism. We consider points-to analysis for such applications. Points-to analysis determines the objects pointed to by a reference variable or a reference object field. Such information plays a fundamental role as a prerequisite for many other static analyses. We present the first theoretical definition of points-to analysis for RMI-based Java applications, and we present an algorithm for implementing a flow- and context-insensitive points-to analysis for such applications. We also discuss the use of points-to information for computing call graph information, for understanding data dependencies due to remote memory locations, and for identifying opportunities for improving the performance of object serialization at remote calls. The work described in this paper solves one key problem for static analysis of RMI programs and provides a starting point for future work on improving the understanding, testing, verification, and performance of RMI-based software. {\textcopyright} 2006 IEEE.},
+annote = {What is the whole article about?
+Problem - There is no pointer analysis for remote method invocation operations in Java applications. 
+Insight - This makes the possibility to perform static analysis challenging. 
+Methodology - Pointer analysis for remote method invocation requires to consider relationship between objects in different programs withing differnt JVM. A pointer-analysis is considered by extracting the remote references to remote objects within each class. This reference and corresponding semantics allows us to detect relationship between local objects and remote when a remote-method invocation occurs. We will have call by deep copy
+Limitation - The pointer-analysis doesn't give us any opportunities to perform static analysis efficiently and in large scale apps.},
+author = {Sharp, Mariana and Rountev, Atanas},
+doi = {10.1109/TSE.2006.93},
+issn = {00985589},
+journal = {IEEE Transactions on Software Engineering},
+keywords = {Call graph construction,Class analysis,Distributed software,Object-oriented software,Points-to analysis,Program analysis,RMI,Reference analysis,Side-effect analysis},
+number = {9},
+pages = {664--681},
+title = {{Static analysis of object references in RMI-based Java software}},
+volume = {32},
+year = {2006}
+}
+@article{Radhakrishna2018,
+abstract = {Event-driven programming frameworks, such as Android, are based on components with asynchronous interfaces. The protocols for interacting with these components can often be described by finite-state machines we dub callback typestates. Callback typestates are akin to classical typestates, with the difference that their outputs (callbacks) are produced asynchronously. While useful, these specifications are not commonly available, because writing them is difficult and error-prone. Our goal is to make the task of producing callback typestates significantly easier. We present a callback typestate assistant tool, DroidStar, that requires only limited user interaction to produce a callback typestate. Our approach is based on an active learning algorithm, L∗. We improved the scalability of equivalence queries (a key component of L∗), thus making active learning tractable on the Android system. We use DroidStar to learn callback typestates for Android classes both for cases where one is already provided by the documentation, and for cases where the documentation is unclear. The results show that DROIDSTAR learns callback typestates accurately and efficiently. Moreover, in several cases, the synthesized callback typestates uncovered surprising and undocumented behaviors.},
+annote = {Problem:
+The bahavior of a callback can be defined via finite state machines or typestates. The sepcs of callback typestate is not available and writing them is tedious and error-prone: one need to check all possible order execution of it. 
+
+Insight:
+The behavior of callback can be modeled in the form of type-states. This model is possible to be inferred by running unit tests and utilization of L* algorithm to extract the mealy machine of it. 
+why L*? Since callbacks donot usually have error state,
+Methodology
+The input and output of a mealy machine is manually defined from callin and callbacks. Unit-tests are also written for each object in Android. 
+L* algorithm performs membership queries to extract correct 
+This tool is an assistant for developers in detecting the correct order of callbacks. 
+
+Limitations
+The 
+
+
+Future Work
+Input of callins and extracting larger automaton from the smaller one is possible.},
+archivePrefix = {arXiv},
+arxivId = {1701.07842},
+author = {Radhakrishna, Arjun and Lewchenko, Nicholas V. and Meier, Shawn and Mover, Sergio and Sripada, Krishna Chaitanya and Zufferey, Damien and Chang, Bor Yuh Evan and {\v{C}}ern{\'{y}}, Pavol},
+doi = {10.1145/3180155.3180232},
+eprint = {1701.07842},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Radhakrishna et al. - 2018 - DROIDStar Callback typestates for Android classes.pdf:pdf},
+isbn = {9781450356381},
+issn = {02705257},
+journal = {Proceedings - International Conference on Software Engineering},
+keywords = {Active learning,Android,Specification inference,Typestate},
+pages = {1160--1170},
+title = {{DROIDStar: Callback typestates for Android classes}},
+year = {2018}
+}
+@article{Antkiewicz2007,
+abstract = {Framework-specific models represent the design of pplicationcode from the framework viewpoint by showing how framework-provided concepts are implemented in the code. In this paper, we describe an experimental study of the static analyses necessary to automatically retrieve such models from application code. We reverse engineer a number of applications based on three open-source frameworks and evaluate the quality of the retrieved models. The models are expressed using framework-specific modeling languages(FSMLs), each designed for one of the open-source frameworks. For reverse engineering, we use prototype implementations of the three FSMLs. Our results show that for the considered frameworks rather simple code analysesare sufficient for automatically retrieving framework-specific models form a large body of application code with high precision and recall. Copyright 2007 ACM.},
+author = {Antkiewicz, Micha{\l} and Bartolomei, Thiago Tonelli and Czarnecki, Krzysztof},
+doi = {10.1145/1321631.1321664},
+file = {:home/maryam/Documents/PhD/Articles/Concepts/1321631.1321664.pdf:pdf},
+isbn = {9781595938824},
+journal = {ASE'07 - 2007 ACM/IEEE International Conference on Automated Software Engineering},
+keywords = {framework-specific modeling languages,framework-specific models,object-oriented frameworks,reverse engineering,static analysis},
+pages = {214--223},
+title = {{Automatic extraction of framework-specific models from framework-based application code}},
+year = {2007}
+}
+@article{Grove1997,
+abstract = {Interprocedural analyses enable optimizing compilers to more precisely model the effects of non-inlined procedure calls, potentially resulting in substantial increases in application performance. Applying interprocedural analysis to programs written in object-oriented or functional languages is complicated by the difficulty of constructing an accurate program call graph. This paper presents a parameterized algorithmic framework for call graph construction in the presence of message sends and/or first-class functions. We use this framework to describe and to implement a number of well-known and new algorithms. We then empirically assess these algorithms by applying them to a suite of medium-sized programs written in Cecil and Java, reporting on the relative cost of the analyses, the relative precision of the constructed call graphs, and the impact of this precision on the effectiveness of a number of interprocedural optimizations.},
+annote = {Problem:
+
+
+Insight:
+
+
+Methodology:
+
+
+Limitation:},
+author = {Grove, David and DeFouw, Greg and Dean, Jeffrey and Chambers, Craig},
+doi = {10.1145/263698.264352},
+file = {:home/maryam/Documents/PhD/Articles/Java Callgraph/Call Graph Construction in Object-Oriented Languages.pdf:pdf},
+isbn = {0897919084},
+issn = {03621340},
+journal = {SIGPLAN Notices (ACM Special Interest Group on Programming Languages)},
+number = {10},
+pages = {108--123},
+title = {{Call Graph Construction in Object-Oriented Languages}},
+volume = {32},
+year = {1997}
+}
+@article{Lee2016,
+abstract = {Mobile applications (apps) have long invaded the realm of desktop apps, and hybrid apps become a promising solution for supporting multiple mobile platforms. Providing both platform-specific functionalities via native code like native apps and user interactions via JavaScript code like web apps, hybrid apps help developers build multiple apps for different platforms without much duplicated efforts. However, most hybrid apps are developed in multiple programming languages with different semantics, which may be vulnerable to programmer errors. Moreover, because untrusted JavaScript code may access device-specific features via native code, hybrid apps may be vulnerable to various security attacks. Unfortunately, no existing tools can help hybrid app developers by detecting errors or security holes. In this paper, we present HybriDroid, a static analysis framework for Android hybrid apps. We investigate the semantics of Android hybrid apps especially for the interoperation mechanism of Android Java and JavaScript. Then, we design and implement a static analysis framework that analyzes inter-communication between Android Java and JavaScript. As example analyses supported by HybriDroid, we implement a bug detector that identifies programmer errors due to the hybrid semantics, and a taint analyzer that finds information leaks cross language boundaries. Our empirical evaluation shows that the tools are practically usable in that they found previously uncovered bugs in real-world Android hybrid apps and possible information leaks via a widely-used advertising platform.},
+author = {Lee, Sungho and Dolby, Julian and Ryu, Sukyoung},
+doi = {10.1145/2970276.2970368},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Lee, Dolby, Ryu - 2016 - HybriDroid Static analysis framework for android hybrid applications.pdf:pdf},
+isbn = {9781450338455},
+journal = {ASE 2016 - Proceedings of the 31st IEEE/ACM International Conference on Automated Software Engineering},
+keywords = {Analysis framework,Android,Hybrid applications,Multi-language analysis,Static analysis},
+pages = {250--261},
+title = {{HybriDroid: Static analysis framework for android hybrid applications}},
+year = {2016}
+}
+@article{Salehnamadi2020,
+annote = {Problem
+Existing static analysis solutions cannot identify event races due to imprecise modeling of concurrency behavior in android and adopting solutions that are flow,context and thread insensitive.
+
+Insight
+A summry containing the type of object instantiated or function called (method invocation) is automatically retrieved from each funciton/ callback called Concurrency Summary Graph (CSF). It allows us to record the concurrency aware behavior in each callback/function in three state: start, end and method invocation.
+
+Methodology
+The graph of relationship between CSF is then extracted by having some specs about the correct order of the callbacks (dummy main method in FlowDroid is used). The solution is Scalable , extensible and available. Vector Clock is used to keep track of the order of method invocation of callbacks and async callbacks to capture their happen-beofre relation. 
+
+Limitations
+The pointer analysis is not precise enough and it has FP and FN. 
+},
+author = {Salehnamadi, Navid and Alshayban, Abdulaziz and Ahmed, Iftekhar and Malek, Sam},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Salehnamadi et al. - 2020 - ER Catcher A Static Analysis Framework for Accurate and Scalable Event-Race Detection in Android.pdf:pdf},
+isbn = {9781450367684},
+journal = {Ase 2020},
+keywords = {android,concurrency,event-race detection,program analysis},
+pages = {324--335},
+title = {{ER Catcher: A Static Analysis Framework for Accurate and Scalable Event-Race Detection in Android}},
+url = {https://conf.researchr.org/details/ase-2020/ase-2020-papers/84/ER-Catcher-A-Static-Analysis-Framework-for-Accurate-and-Scalable-Event-Race-Detectio},
+year = {2020}
+}
+@article{Cao2015,
+abstract = {—A wealth of recent research proposes static data flow analysis for the security analysis of Android applications. One of the building blocks that these analysis systems rely upon is the computation of a precise control flow graph. The callback mechanism provided and orchestrated by the Android framework makes the correct generation of the control flow graph a challenging endeavor. From the analysis' point of view, the invocation of a callback is an implicit control flow transition facilitated by the framework. Existing static analysis tools model callbacks through either manually curated lists or ad-hoc heuristics. This work demonstrates that both approaches are insufficient, and allow malicious applications to evade detection by state-of-the-art analysis systems. To address the challenge of implicit control flow transitions (i.e., callbacks) through the Android framework, we are the first to propose, implement, and evaluate a systematic treatment of this aspect. Our implementation, called EDGEMINER, statically analyzes the entire Android framework to automatically generate API summaries that describe implicit control flow transitions through the Android framework.We use EDGEMINER to analyze three major versions of the Android framework. EDGEMINER identified 19,647 callbacks in Android 4.2, suggesting that a manual treatment of this challenge is likely infeasible. Our evaluation demonstrates that the current insufficient treatment of callbacks in state-of-the-art analysis tools results in unnecessary imprecision. For example, FlowDroid misses a variety of leaks of privacy sensitive data from benign off-the-shelf Android applications because of its inaccurate handling of callbacks. Of course, malicious applications can also leverage this blind spot in current analysis systems to evade detection at will. To alleviate these drawbacks, we make our results publicly available and demonstrate how these results can easily be integrated into existing state-of-the-art analysis tools. Our work allows existing tools to comprehensively address the challenge of callbacks and identify previously undetected leakage of privacy sensitive data.},
+annote = {Problem:
+Using heauristics and manual extraction of callbacks is error prone and tedious. There is no automatic work for it.
+
+Insight:
+The registeratoin method for callbacks can be considered as the point where they are being invoked. No need to manually define callbacks but need to know the registeration points and functions. 
+
+Methodology:
+With preprocessing the android framework class hierarchy, invoke calls of the functions in codes, etc. it is possible to detect the callbacks and their specific function for registering them. The data flow between arguments of the registration methods and the interface of the callback gives us the opportunity to do so. Thus, we can find all the callbacks and the functions that recieve them as input. By inter-procedural analysis, we can get that the object can flow from app to framework level. 
+
+Limitations:
+1.The correct order of the callback is not recognized and only their type and registeration is detected. (the temporal relation and even the async or sync type is not detected!)
+
+2.The dynamic typing is undecidable statically and the algorithm considers all possible implementations of the callback rather than the precise one. 
+
+3. Exceptions, reflections and native codes are the other things that ar eput aside.},
+author = {Cao, Yinzhi and Fratantonio, Yanick and Bianchi, Antonio and Egele, Manuel and Kruegel, Christopher and Vigna, Giovanni and Chen, Yan},
+doi = {10.14722/ndss.2015.23140},
+file = {:home/maryam/Documents/PhD/Articles/event-driven/Edge-Miner.pdf:pdf},
+isbn = {189156238X},
+number = {February},
+pages = {8--11},
+title = {{EdgeMiner: Automatically Detecting Implicit Control Flow Transitions through the Android Framework}},
+year = {2015}
+}
+@article{Zhang2006a,
+abstract = {Call graphs are widely used to represent calling relationships among methods. However, there is not much interest in calling relationships among library methods in many software engineering applications such as program understanding and testing, especially when the library is very big and the calling relationships are not trivial. This paper explores approaches to generate more accurate application call graphs for Java. A new data reachability algorithm is proposed and fine-tuned to resolve library callbacks accurately. Compared to a simple algorithm that generates an application call graph by traversing the whole-program call graph, the fine-tuned data reachability algorithm results in fewer spurious callback edges. In experiments with the spec jvm98 benchmarks, the new algorithm shows a significant reduction in the number of spurious callback edges over the simple algorithm: on average, the number of callback edges is reduced by 74.97%, amounting to overall 64.43% edge reduction for the generated application call graphs. {\textcopyright} 2006 IEEE.},
+annote = {Problem:
+
+
+Insight:
+
+
+Methodology"
+
+
+Conclusion:},
+author = {Zhang, Weilei and Ryder, Barbara},
+doi = {10.1109/SCAM.2006.9},
+file = {:home/maryam/Documents/PhD/Articles/Concepts/53.pdf:pdf},
+isbn = {0769523536},
+journal = {Proceedings - Sixth IEEE International Workshop on Source Code Analysis and Manipulation, SCAM 2006},
+pages = {63--72},
+title = {{Constructing accurate application call graphs for java to model library callbacks}},
+year = {2006}
+}
+@article{Felt2011,
+abstract = {Android provides third-party applications with an extensive API that includes access to phone hardware, settings, and user data. Access to privacy- and security-relevant parts of the API is controlled with an install-time application permission system. We study Android applications to determine whether Android developers follow least privilege with their permission requests. We built Stowaway, a tool that detects overprivilege in compiled Android applications. Stowaway determines the set of API calls that an application uses and then maps those API calls to permissions. We used automated testing tools on the Android API in order to build the permission map that is necessary for detecting overpriv-ilege. We apply Stowaway to a set of 940 applications and find that about one-third are overprivileged. We investigate the causes of overprivilege and find evidence that developers are trying to follow least privilege but sometimes fail due to insufficient API documentation. {\textcopyright} 2011 ACM.},
+author = {Felt, Adrienne Porter and Chin, Erika and Hanna, Steve and Song, Dawn and Wagner, David},
+doi = {10.1145/2046707.2046779},
+file = {:home/maryam/Documents/PhD/Articles/Covert-and-side-Channel/Permission/2011 Android permissions demystified.pdf:pdf},
+isbn = {9781450310758},
+issn = {15437221},
+journal = {Proceedings of the ACM Conference on Computer and Communications Security},
+keywords = {Android,Least privilege,Permissions},
+pages = {627--636},
+title = {{Android permissions demystified}},
+year = {2011}
+}
+@article{Pauck2019,
+abstract = {Recent years have seen the development of numerous tools for the analysis of taint flows in Android apps. Taint analyses aim at detecting data leaks, accidentally or by purpose programmed into apps. Often, such tools specialize in the treatment of specific features impeding precise taint analysis (like reflection or inter-app communication). This multitude of tools, their specific applicability and their various combination options complicate the selection of a tool (or multiple tools) when faced with an analysis instance, even for knowledgeable users, and hence hinders the successful adoption of taint analyses. In this work, we thus present CoDiDroid, a framework for cooperative Android app analysis. CoDiDroid (1) allows users to ask questions about flows in apps in varying degrees of detail, (2) automatically generates subtasks for answering such questions, (3) distributes tasks onto analysis tools (currently DroidRA, FlowDroid, HornDroid, IC3 and two novel tools) and (4) at the end merges tool answers on subtasks into an overall answer. Thereby, users are freed from having to learn about the use and functionality of all these tools while still being able to leverage their capabilities. Moreover, we experimentally show that cooperation among tools pays off with respect to effectiveness, precision and scalability.},
+author = {Pauck, Felix and Wehrheim, Heike},
+doi = {10.1145/3338906.3338915},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Pauck, Wehrheim - 2019 - Together strong Cooperative Android app analysis.pdf:pdf},
+isbn = {9781450355728},
+journal = {ESEC/FSE 2019 - Proceedings of the 2019 27th ACM Joint Meeting European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+keywords = {Android Taint Analysis,Cooperation,Precision,Tools},
+pages = {374--384},
+title = {{Together strong: Cooperative Android app analysis}},
+year = {2019}
+}
+@inproceedings{Geiger2018,
+abstract = {Obtaining a good dataset to conduct empirical studies on the engineering of Android apps is an open challenge. To start tackling this challenge, we present AndroidTimeMachine, the first, self-contained, publicly available dataset weaving spread-out data sources about real-world, open-source Android apps. Encoded as a graph-based database, AndroidTimeMachine concerns 8,431 real open-source Android apps and contains: (i) metadata about the apps' GitHub projects, (ii) Git repositories with full commit history and (iii) metadata extracted from the Google Play store, such as app ratings and permissions.},
+annote = {This article attempts to provide a set of github repositories of Android applications for the ones who want to test or work on them as their benchmark.},
+author = {Geiger, Franz Xaver and Malavolta, Ivano and Pascarella, Luca and Palomba, Fabio and {Di Nucci}, Dario and Bacchelli, Alberto},
+booktitle = {Proceedings - International Conference on Software Engineering},
+doi = {10.1145/3196398.3196460},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Geiger et al. - 2018 - A graph-based dataset of commit history of real-world Android apps.pdf:pdf},
+isbn = {9781450357166},
+issn = {02705257},
+keywords = {Android,dataset,mining software repositories},
+pages = {30--33},
+title = {{A graph-based dataset of commit history of real-world Android apps}},
+year = {2018}
+}
+@article{Fan2018,
+abstract = {Android, the #1 mobile app framework, enforces the single-GUI-thread model, in which a single UI thread manages GUI rendering and event dispatching. Due to this model, it is vital to avoid blocking the UI thread for responsiveness. One common practice is to offload long-running tasks into async threads. To achieve this, Android provides various async programming constructs, and leaves developers themselves to obey the rules implied by the model. However, as our study reveals, more than 25% apps violate these rules and introduce hard-to-detect, fail-stop errors, which we term as aysnc programming errors (APEs). To this end, this paper introduces APEChecker, a technique to automatically and efficiently manifest APEs. The key idea is to characterize APEs as specific fault patterns, and synergistically combine static analysis and dynamic UI exploration to detect and verify such errors. Among the 40 real-world Android apps, APEChecker unveils and processes 61 APEs, of which 51 are confirmed (83.6% hit rate). Specifically, APEChecker detects 3X more APEs than the state-of-art testing tools (Monkey, Sapienz and Stoat), and reduces testing time from half an hour to a few minutes. On a specific type of APEs, APEChecker confirms 5X more errors than the data race detection tool, EventRacer, with very few false alarms.},
+archivePrefix = {arXiv},
+arxivId = {1808.03178},
+author = {Fan, Lingling and Meng, Guozhu and Su, Ting and Liu, Yang and Pu, Geguang and Chen, Sen and Xu, Lihua},
+doi = {10.1145/3238147.3238170},
+eprint = {1808.03178},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Fan et al. - 2018 - Efficiently manifesting asynchronous programming errors in android apps.pdf:pdf},
+isbn = {9781450359375},
+journal = {ASE 2018 - Proceedings of the 33rd ACM/IEEE International Conference on Automated Software Engineering},
+keywords = {Android,Asynchronous programming error,Static analysis,Testing},
+pages = {486--497},
+title = {{Efficiently manifesting asynchronous programming errors in android apps}},
+year = {2018}
+}
+@article{Yang2015,
+abstract = {Android software presents many challenges for static program analysis. In this work we focus on the fundamental problem of static control-flow analysis. Traditional analyses cannot be directly applied to Android because the applications are framework-based and event-driven. We consider user-eventdriven components and the related sequences of callbacks from the Android framework to the application code, both for lifecycle callbacks and for event handler callbacks. We propose a program representation that captures such callback sequences. This representation is built using contextsensitive static analysis of callback methods. The analysis performs graph reachability by traversing context-compatible interprocedural control-flow paths and identifying statements that may trigger callbacks, as well as paths that avoid such statements. We also develop a client analysis that builds a static model of the application's GUI. Experimental evaluation shows that this context-sensitive approach leads to substantial precision improvements, while having practical cost.},
+annote = {Problem: 
+Traditional control flow graph analysis cannot be applied to android app analysis due to existing callbacks (being event-driven and dependent to framework to handle event sequences).
+
+Insight:
+The control flow analysis can be reduced to modeling the possible sequence of callbacks. Each callback should be analyzed separately for different invocation context associated with it. 
+Each context is differentiated from others upon event on each widget and cab be resolved statically due to constant value on widget id.
+
+
+Methodology:
+A graph called CCFG is created from the source code. Activity, Menu and dialog are chosen to model their callback sequences statically to find the valid paths and the others are abstracted away. Two sets of nodes exist: reachedtrigger and avoidtrigger where the first is where a callback can occuer and the other has an explicit return value. The final call graph shows the possible order of callbacks in the app prior to each event on each widget.
+
+Limitation:
+1. There was not a very precise evaluation. This work was not compared with the other work such as Flowdroid and I suppose the related result is not possible to be counted as acceptable. 
+
+2. The general model looks to be precise but it lacks from the precise reference analysis (context insensitive).
+
+3. Some of the relationship are not modeled such as the exit point of activity, the pause and resume opreation, return from an app back to the current activity. It can be easily modeled and added to this solution.
+
+
+4. The conditional branching is only dependent to when the value is related to a view item but not other cases. What if it is being valued at runtim? Does the program handle it ? No!
+
+5. Activity, menu and dialog are modeled. However, we can have other kinds of objects and it is not clear why they are put away. 
+
+6. Single component events are modeled and not the inter-component.
+
+7. Cannot handle callbacks for other types of resources rather than GUI elements. It is easy to extend but should consider the global variables too where there is no evidence that this can be handled!
+
+1. Branch and Join gives us the opportunity to model the callback freely!
+
+2. The general model can be used to model the callback and callin behavior for other types of resources. However, the reference analysis behind should be precise.},
+author = {Yang, Shengqian and Yan, Dacong and Wu, Haowei and Wang, Yan and Rountev, Atanas},
+doi = {10.1109/ICSE.2015.31},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Yang et al. - 2015 - Static control-flow analysis of user-driven callbacks in android applications.pdf:pdf},
+isbn = {9781479919345},
+issn = {02705257},
+journal = {Proceedings - International Conference on Software Engineering},
+pages = {89--99},
+title = {{Static control-flow analysis of user-driven callbacks in android applications}},
+volume = {1},
+year = {2015}
+}
+@article{Felt2012,
+author = {Felt, Adrienne Porter and Ha, Elizabeth and Egelman, Serge and Haney, Ariel and Chin, Erika and Wagner, David},
+keywords = {android,mobile phones,smartphones,usable security},
+title = {{Android Permissions : User Attention , Comprehension , and Behavior}},
+year = {2012}
+}
+@article{Gan,
+annote = {General approach: How does taint analysis help fuzzing in reaching branches triggering the vulnerabilities?
+
+If a value of a variable changes due to mutating the tainted variable, then they are related to one anohter. Input bytes that affect untouched bytes have more priority. In this case, the dependency between bytes, variables and branches is extracted. Regarding to the changes to each byte and path constraint, this dependency is updated for mutation of each byte.},
+author = {Gan, Shuitao and Zhang, Chao and Chen, Peng and Zhao, Bodong and Qin, Xiaojun and Wu, Dong and Chen, Zuoning},
+title = {{G REY O NE : Data Flow Sensitive Fuzzing}}
+}
+@article{Avdiienko2017,
+author = {Avdiienko, Vitalii and Soremekun, Ezekiel O and Zeller, Andreas},
+file = {:home/maryam/Downloads/MutaFlow - Detecting implicit flow.pdf:pdf},
+isbn = {9781538626849},
+pages = {263--273},
+title = {{Detecting Information Flow by Mutating Input Data}},
+year = {2017}
+}
+@article{Bodden2012,
+abstract = {The IFDS and IDE frameworks by Reps, Horwitz and Sagiv are two general frameworks for the inter-procedural analysis of data-flow problems with distributive flow functions over finite domains. Many data-flow problems do have distributive flow functions and are thus expressible as IFDS or IDE problems, reaching from basic analyses like truly-live variables to complex analyses for problems from the current literature such as typestate and secure information-flow. In this work we describe our implementation of a generic IFDS/IDE solver on top of Soot and contrast it with an IFDS implementation in the Watson Libraries for Analysis (WALA), both from a user's perspective and in terms of the implementation. While WALA's implementation is geared much towards memory efficiency, ours is currently geared more towards extensibility and ease of use and we focus on efficiency as a secondary goal. We further discuss possible extensions to our IFDS/IDE implementation that may be useful to support a wider range of analyses. Copyright {\textcopyright} 2012 ACM.},
+annote = {Problem
+
+
+Insight
+
+
+Methodology
+
+
+Conclusion},
+author = {Bodden, Eric},
+doi = {10.1145/2259051.2259052},
+file = {:home/maryam/Documents/PhD/Articles/Concepts/IFDS.pdf:pdf},
+isbn = {9781450314909},
+journal = {Proceedings of the ACM SIGPLAN International Workshop on State of the Art in Java Program Analysis, SOAP 2012},
+keywords = {Flow-sensitive analysis,IDE,IFDS,Inter-procedural static analysis},
+pages = {3--8},
+title = {{Inter-procedural data-flow analysis with IFDS/IDE and soot}},
+year = {2012}
+}
+@book{Bultan2020,
+abstract = {This paper provides a brief overview of recent results in quantitative information flow analysis, model counting constraints solvers, side-channel analysis and attack synthesis. By combining model counting constraints solvers with symbolic execution it is possible to quantify the amount of information that a program leaks about a secret input. As discussed below, this type of analysis is crucial for detection and analysis of side channel vulnerabilities.},
+author = {Bultan, Tevfik},
+booktitle = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+doi = {10.1007/978-3-030-41600-3_3},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bultan - 2020 - Quantifying information leakage using model counting constraint solvers.pdf:pdf},
+isbn = {9783030415990},
+issn = {16113349},
+keywords = {Model counting,Quantitative information flow,Quantitative program analysis,Side channels},
+pages = {30--35},
+publisher = {Springer International Publishing},
+title = {{Quantifying information leakage using model counting constraint solvers}},
+url = {http://dx.doi.org/10.1007/978-3-030-41600-3_3},
+volume = {12031 LNCS},
+year = {2020}
+}
+@article{Wei2018,
+author = {Wei, Fengguo and Roy, Sankardas and Ou, Xinming},
+file = {:home/maryam/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Wei, Roy, Ou - 2018 - Amandroid A Precise and General Inter-component Data Flow Analysis Framework for Security Vetting of Android Apps.pdf:pdf},
+number = {3},
+title = {{Amandroid : A Precise and General Inter-component Data Flow Analysis Framework for Security Vetting of Android Apps}},
+volume = {21},
+year = {2018}
+}
+@article{Benz,
+author = {Benz, Manuel and Kristensen, Erik Krogh and Bodden, Eric and Zeller, Andreas},
+isbn = {9781450399999},
+keywords = {acm reference format,borges jr,erik krogh kristensen,heap snapshot,linghui luo,manuel benz,nataniel p,points-to analysis,soot,taint analysis},
+title = {{Heaps ' n Leaks : How Heap Snapshots Improve Android Taint Analysis}}
+}
+@article{Malware,
+author = {Malware, Android and Using, Classification and Neural, Convolutional},
+file = {:home/maryam/Downloads/JICV-D-20-00085_reviewer(3).pdf:pdf},
+title = {{Journal of Computer Virology and Hacking Techniques Android Malware Classification Using Convolutional Neural Network and LSTM Android Malware Classification Using Convolutional Neural Network and LSTM Nowadays , hand phone device usage is increasing swif}}
+}
+@article{Tud-cs--2013,
+author = {Tud-cs--, Nr and Fritz, Christian and Spride, E C and Arzt, Steven and Spride, E C and Rasthofer, Siegfried and Spride, E C and Bodden, Eric and Spride, E C and Klein, Jacques and Traon, Yves and Octeau, Damien and Mcdaniel, Patrick},
+keywords = {10,5,75,according to a recent,android,android now has about,market share in the,mobile-phone market,static analysis,study,taint analysis,with a 91},
+title = {{Highly Precise Taint Analysis for Android Application}},
+year = {2013}
+}
+@article{Clarkson2010,
+author = {Clarkson, Michael R and Schneider, Fred B},
+doi = {10.3233/JCS-2009-0393},
+keywords = {information flow,liveness,safety,security policies},
+pages = {1157--1210},
+title = {{Hyperproperties}},
+volume = {18},
+year = {2010}
+}
