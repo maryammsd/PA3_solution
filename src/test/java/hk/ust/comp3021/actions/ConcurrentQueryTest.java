@@ -90,7 +90,7 @@ public class ConcurrentQueryTest {
 					switch (query.getObject()) {
 					case PAPER:
 						for (String paper : engine.getPaperBase().keySet()) {
-							if (paper.equals(query.getValue())) {
+							if (paper.equals(query.getCondition())) {
 								engine.getPaperBase().remove(paper);
 								query.setCompleted(true);
 							}
@@ -98,8 +98,8 @@ public class ConcurrentQueryTest {
 						break;
 					case AUTHOR:
 						for (String paper : engine.getPaperBase().keySet()) {
-							if (engine.getPaperBase().get(paper).getAuthors().contains(query.getValue())) {
-								engine.getPaperBase().get(paper).getAuthors().remove(query.getValue());
+							if (engine.getPaperBase().get(paper).getAuthors().contains(query.getCondition())) {
+								engine.getPaperBase().get(paper).getAuthors().remove(query.getCondition());
 								query.setCompleted(true);
 							}
 						}
@@ -107,7 +107,7 @@ public class ConcurrentQueryTest {
 					case JOURNAL:
 						for (String paper : engine.getPaperBase().keySet()) {
 							if (engine.getPaperBase().get(paper).getJournal() != null) {
-								if (engine.getPaperBase().get(paper).getJournal().contains(query.getValue())) {
+								if (engine.getPaperBase().get(paper).getJournal().contains(query.getCondition())) {
 									engine.getPaperBase().get(paper).setJournal("");
 									query.setCompleted(true);
 								}
@@ -116,7 +116,7 @@ public class ConcurrentQueryTest {
 						break;
 					case YEAR:
 						for (String paper : engine.getPaperBase().keySet()) {
-							if (engine.getPaperBase().get(paper).getYear() == Integer.valueOf(query.getValue())) {
+							if (engine.getPaperBase().get(paper).getYear() == Integer.valueOf(query.getCondition())) {
 								engine.getPaperBase().get(paper).setYear(0);
 								query.setCompleted(true);
 							}
@@ -126,7 +126,7 @@ public class ConcurrentQueryTest {
 						for (String paper : engine.getPaperBase().keySet()) {
 							if (engine.getPaperBase().get(paper).getKeywords().size() > 0) {
 								if (engine.getPaperBase().get(paper).getKeywords().contains(query.getCondition())) {
-									engine.getPaperBase().get(paper).getKeywords().remove(query.getValue());
+									engine.getPaperBase().get(paper).getKeywords().remove(query.getCondition());
 									query.setCompleted(true);
 								}
 							}
@@ -135,7 +135,7 @@ public class ConcurrentQueryTest {
 					case TITLE:
 						for (String paper : engine.getPaperBase().keySet()) {
 							if (engine.getPaperBase().get(paper).getKeywords().size() > 0) {
-								if (engine.getPaperBase().get(paper).getTitle().equals(query.getValue())) {
+								if (engine.getPaperBase().get(paper).getTitle().equals(query.getCondition())) {
 									engine.getPaperBase().get(paper).setTitle("");
 									query.setCompleted(true);
 								}
